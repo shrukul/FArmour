@@ -7,23 +7,55 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@color/bg_color">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="60dp"
+            android:orientation="horizontal"
+            android:background="@color/colorAccent"
+            android:weightSum="10">
+
+            <com.arlib.floatingsearchview.FloatingSearchView
+                android:id="@+id/floating_search_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                app:floatingSearch_close_search_on_keyboard_dismiss="true"
+                app:floatingSearch_leftActionMode="showHamburger"
+                app:floatingSearch_searchBarMarginLeft="10dp"
+                app:floatingSearch_searchBarMarginRight="0dp"
+                app:floatingSearch_searchBarMarginTop="0dp"
+                app:floatingSearch_searchHint="Search..."
+                app:floatingSearch_showSearchKey="false"
+                app:floatingSearch_suggestionsListAnimDuration="250"
+                android:layout_weight="8.5"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="18dp"
+                android:layout_gravity="top"
+                android:src="@drawable/cart"
+                android:layout_weight="1.5"/>
+
+        </LinearLayout>
 
         <FrameLayout
             android:id="@+id/frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/bg_color"
+            android:layout_marginTop="60.0dip">
 
         </FrameLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
@@ -34,5 +66,5 @@
         app:headerLayout="@layout/header"
         app:itemBackground="@drawable/drawer_list_selector"
         app:menu="@menu/drawer"
-        app:theme="@style/FarmourTheme.Navigation"/>
+        app:theme="@style/FarmourTheme.Navigation" />
 </android.support.v4.widget.DrawerLayout>

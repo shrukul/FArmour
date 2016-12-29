@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
+
 import static com.example.shrukul.farmour.R.drawable.profile;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+
+    FloatingSearchView floatingSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +47,18 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        floatingSearchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
+
+/*        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("FArmour");
+        getSupportActionBar().setTitle("FArmour");*/
 
         initView();
+
+
 
         //Initializing NavigationView
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -120,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+        floatingSearchView.attachNavigationDrawerToMenuButton(drawerLayout);
+
         getProfileInformation();
     }
 
@@ -147,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame, fragment_home);
         fragmentTransaction.commit();
 
-        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+/*        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
 
             ValueAnimator anim;
 
@@ -190,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
                 anim.setDuration(500);
                 anim.start();
             }
-        });
+        });*/
     }
 
     @Override

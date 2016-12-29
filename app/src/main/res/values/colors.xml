@@ -75,8 +75,8 @@
     <color name="colorAccent">@color/colorPrimary</color>
     <color name="colorMarshmallowTweakColorPrimary">#ffe3714e</color>
     <color name="colorMarshmallowTweakColorPrimaryDark">#ffb65a3f</color>
-    <color name="colorPrimary">#0097A7</color>
-    <color name="colorPrimaryDark">#00838F</color>
+    <color name="colorPrimary">#ff343b41</color>
+    <color name="colorPrimaryDark">#ff343b41</color>
     <color name="colorPrimaryFix">#ffe3714e</color>
     <color name="color_primary">#ffe3714d</color>
     <color name="color_stroke">#ffe3e8e9</color>

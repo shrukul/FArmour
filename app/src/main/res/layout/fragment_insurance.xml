@@ -6,169 +6,157 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginTop="5dp"
-    android:background="@color/white">
+    android:background="@color/bg_color">
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/YogaCard"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        card_view:cardElevation="0dp"
-        card_view:cardMaxElevation="0dp"
-        card_view:cardPreventCornerOverlap="false">
+        android:background="@color/bg_color"
+        android:orientation="vertical"
+        android:weightSum="2">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:orientation="vertical"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:weightSum="2">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:weightSum="2">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/farm"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_margin="2dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    card_view:cardElevation="5dp"
+                    card_view:cardMaxElevation="5dp"
+                    card_view:cardPreventCornerOverlap="false">
 
-                    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/farm"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp"
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        card_view:cardElevation="2dp"
-                        card_view:cardMaxElevation="2dp"
-                        card_view:cardPreventCornerOverlap="false">
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:weightSum="4">
 
-                        <LinearLayout
+                        <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:orientation="vertical"
-                            android:weightSum="4">
+                            android:layout_height="0dp"
+                            android:layout_margin="30dp"
+                            android:layout_weight="3"
+                            android:src="@drawable/farm" />
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="30dp"
-                                android:layout_weight="3"
-                                android:src="@drawable/farm" />
-
-                            <TextView
-                                style="@style/FarmourTheme.ItemTextView"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="Farm" />
-                        </LinearLayout>
-                    </android.support.v7.widget.CardView>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/vehicle"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp"
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        card_view:cardElevation="2dp"
-                        card_view:cardMaxElevation="2dp"
-                        card_view:cardPreventCornerOverlap="false">
-
-                        <LinearLayout
+                        <TextView
+                            style="@style/FarmourTheme.ItemTextView"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:orientation="vertical"
-                            android:weightSum="4">
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="Farm" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="0dp"
-                                android:layout_margin="30dp"
-                                android:layout_weight="3"
-                                android:src="@drawable/farmtech" />
-
-                            <TextView
-                                style="@style/FarmourTheme.ItemTextView"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="Vehicle" />
-                        </LinearLayout>
-                    </android.support.v7.widget.CardView>
-
-                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:weightSum="2">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/vehicle"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_margin="2dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    card_view:cardElevation="5dp"
+                    card_view:cardMaxElevation="5dp"
+                    card_view:cardPreventCornerOverlap="false">
 
-                    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/life"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp"
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        card_view:cardElevation="2dp"
-                        card_view:cardMaxElevation="2dp"
-                        card_view:cardPreventCornerOverlap="false">
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:weightSum="4">
 
-                        <LinearLayout
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_margin="30dp"
+                            android:layout_weight="3"
+                            android:src="@drawable/farmtech" />
+
+                        <TextView
+                            style="@style/FarmourTheme.ItemTextView"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:orientation="vertical"
-                            android:weightSum="4">
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="Vehicle" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="0dp"
-                                android:layout_margin="30dp"
-                                android:layout_weight="3"
-                                android:src="@drawable/cow" />
-
-                            <TextView
-                                style="@style/FarmourTheme.ItemTextView"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="Life" />
-                        </LinearLayout>
-                    </android.support.v7.widget.CardView>
-
-                </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/life"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    card_view:cardElevation="5dp"
+                    card_view:cardMaxElevation="5dp"
+                    card_view:cardPreventCornerOverlap="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:weightSum="4">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_margin="30dp"
+                            android:layout_weight="3"
+                            android:src="@drawable/cow" />
+
+                        <TextView
+                            style="@style/FarmourTheme.ItemTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="Life" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 </ScrollView>

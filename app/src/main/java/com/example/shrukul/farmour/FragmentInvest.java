@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -37,7 +38,7 @@ public class FragmentInvest extends Fragment implements View.OnClickListener {
 
     private static final String TAG = "FragmentInvest";
     private final String serverUrl = "http://bucksbuddy.pe.hu/index.php";
-    CardView produce, invest, meat, insurance, farmtech, support;
+    CardView invest_farm;
 
     TextView amt;
 
@@ -58,12 +59,14 @@ public class FragmentInvest extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-/*        produce = (CardView) getView().findViewById(R.id.produce);
-        invest= (CardView) getView().findViewById(R.id.invest);
+        invest_farm= (CardView) getView().findViewById(R.id.invest_farm);
+/*        invest= (CardView) getView().findViewById(R.id.invest);
         meat = (CardView) getView().findViewById(R.id.meat);
         insurance = (CardView) getView().findViewById(R.id.insurance);
         farmtech = (CardView) getView().findViewById(R.id.farmtech);
         support = (CardView) getView().findViewById(R.id.support);*/
+
+        invest_farm.setOnClickListener(this);
     }
 
     @Override
@@ -85,11 +88,18 @@ public class FragmentInvest extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.produce:
-                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                FragmentHome fragment_home= new FragmentHome();
-                fragmentTransaction.replace(R.id.frame, fragment_home);
-                fragmentTransaction.commit();
+            case R.id.invest_farm:
+                final Snackbar snackbar = Snackbar.make(getView(), "Invest isn't available at this time...", Snackbar.LENGTH_LONG);
+                View snackBarView = snackbar.getView();
+                snackBarView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+                snackbar.setAction("Dismiss", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                    }
+                });
+                snackbar.setActionTextColor(getResources().getColor(R.color.white_opaque_70));
+                snackbar.show();
                 break;
         }
     }

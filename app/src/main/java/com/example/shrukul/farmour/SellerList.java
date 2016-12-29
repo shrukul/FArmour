@@ -2,11 +2,15 @@ package com.example.shrukul.farmour;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.transition.Fade;
+import android.transition.Transition;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -34,11 +38,13 @@ public class SellerList extends AppCompatActivity {
     private Toolbar toolbar;
     LinearLayoutManager llm;
     ProgressDialog progressDialog;
+    Transition fade;
 
     private static final String TAG = "SellerList";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.seller_list);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -64,8 +70,17 @@ public class SellerList extends AppCompatActivity {
 
         Thread t = getThread();
         t.start();
+
+
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public static Transition makeEnterTransition() {
+        Transition fade = new Fade();
+        fade.excludeTarget(android.R.id.navigationBarBackground, true);
+        fade.excludeTarget(android.R.id.statusBarBackground, true);
+        return fade;
+    }
 
     private void fillTempContent(int type) {
 
