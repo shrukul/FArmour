@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginRight="20.0dip"
+                android:layout_marginTop="15.0dip"
+                android:layout_weight="4"
+                android:src="@drawable/cereal"
+                android:transitionName="profile" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25.0dip"
+                android:background="@drawable/selector_text_box"
+                android:orientation="vertical"
+                android:padding="1.0dip">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="#ffffffff"
+                    android:drawablePadding="10.0dip"
+                    android:ellipsize="end"
+                    android:gravity="center|left"
+                    android:minHeight="48.0dip"
+                    android:paddingBottom="10.0dip"
+                    android:paddingLeft="@dimen/login_item_left_padding"
+                    android:paddingRight="@dimen/login_item_left_padding"
+                    android:paddingTop="10.0dip"
+                    android:text="Description"
+                    android:textColor="@color/fc_black"
+                    android:textColorHint="@color/text_color_hint"
+                    android:textSize="@dimen/text_large"
+                    android:textStyle="normal" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0dip"
+                    android:background="@color/divider_login" />
+
+                <TextView
+                    android:id="@+id/login_email"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="#ffffffff"
+                    android:ellipsize="end"
+                    android:gravity="center|left"
+                    android:minHeight="48.0dip"
+                    android:paddingBottom="10.0dip"
+                    android:paddingLeft="@dimen/login_item_left_padding"
+                    android:paddingTop="10.0dip"
+                    android:text="@string/desc"
+                    android:textColor="@color/black_opaque_50"
+                    android:textColorHint="@color/text_color_hint"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
+                android:orientation="vertical"
+                android:padding="1.0dip">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="#ffffffff"
+                    android:drawablePadding="10.0dip"
+                    android:ellipsize="end"
+                    android:gravity="center|left"
+                    android:minHeight="48.0dip"
+                    android:paddingBottom="10.0dip"
+                    android:paddingLeft="@dimen/login_item_left_padding"
+                    android:paddingRight="@dimen/login_item_left_padding"
+                    android:paddingTop="10.0dip"
+                    android:text="Sellers"
+                    android:textColor="@color/fc_black"
+                    android:textColorHint="@color/text_color_hint"
+                    android:textSize="@dimen/text_large"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by shrukul on 20/1/16.
@@ -27,6 +29,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
         ImageView personPhoto;
         TextView amount;
         ImageView type;
+        RatingBar rating;
         private static Context mc;
 
         PersonViewHolder(View itemView) {
@@ -37,9 +40,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
             } catch(Exception E){
                 E.printStackTrace();
             }
-            personAge = (TextView) itemView.findViewById(R.id.recent_item_number);
+//            personAge = (TextView) itemView.findViewById(R.id.recent_item_number);
             personPhoto = (ImageView) itemView.findViewById(R.id.recent_item_pic);
             amount = (TextView) itemView.findViewById(R.id.amt);
+            rating = (RatingBar) itemView.findViewById(R.id.ratingBar);
             mc = itemView.getContext();
             cv.setOnClickListener(this);
         }
@@ -80,7 +84,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
     @Override
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
         personViewHolder.personName.setText(persons.get(i).name);
-        personViewHolder.personAge.setText(persons.get(i).phone);
+//        personViewHolder.personAge.setText(persons.get(i).phone);
+        personViewHolder.rating.setRating(2 + new Random().nextInt(3));
         personViewHolder.amount.setText("₹ " + persons.get(i).amount);
 //        personViewHolder.personPhoto.setImageResource(persons.get(i).photoId);
         personViewHolder.personPhoto.setImageResource(R.drawable.profile);

@@ -36,6 +36,8 @@ public class SubCategory extends AppCompatActivity {
     String[] MACHINERYLIST = {"Sprinkler system", "Farm truck", "Mower", "Cotton picker", "Tractor", "Rotator", "Roller"};
     String[] selectedList;
 
+    int flag = 0;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,9 @@ public class SubCategory extends AppCompatActivity {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
                 Intent it = new Intent(SubCategory.this, SellerList.class);
+                if(flag == 1) {
+                    it = new Intent(SubCategory.this, ProductPage.class);
+                }
                 it.putExtra("type", new Random().nextInt(7));
                 it.putExtra("item", selectedList[position]);
                 startActivity(it);
@@ -73,22 +78,27 @@ public class SubCategory extends AppCompatActivity {
             case "pulses":
                 spinner.setItems(PULSELIST);
                 selectedList = PULSELIST;
+                flag=1;
                 break;
             case "cereals":
                 spinner.setItems(CEREALLIST);
                 selectedList = CEREALLIST;
+                flag=1;
                 break;
             case "vegetables":
                 spinner.setItems(VEGETABLESLIST);
                 selectedList = VEGETABLESLIST;
+                flag=1;
                 break;
             case "fruits":
                 spinner.setItems(FRUITSLIST);
                 selectedList = FRUITSLIST;
+                flag=1;
                 break;
             case "edible oil":
                 spinner.setItems(OILLIST);
                 selectedList = OILLIST;
+                flag=1;
                 break;
             case "seeds":
                 spinner.setItems(SEEDSLIST);

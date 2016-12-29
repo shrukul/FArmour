@@ -13,6 +13,7 @@
         <activity android:name=".SellerList"></activity>
         <activity android:name=".Seller"></activity>
         <activity android:name=".SubCategory"></activity>
+        <activity android:name=".ProductPage"></activity>
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashTheme">
