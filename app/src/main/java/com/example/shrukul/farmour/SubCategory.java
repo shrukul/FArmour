@@ -27,8 +27,11 @@ public class SubCategory extends AppCompatActivity {
     String[] PULSELIST = {"Beans", "Chickpeas", "Dentils", "Dry Peas"};
     String[] CEREALLIST = {"Maize", "Oats", "Barley", "Rice", "Millet", "Wheat"};
     String[] VEGETABLESLIST = {"Cabbage", "Lettuce", "Spinach", "Dandelion", "Wheatgrass"};
-    String[] FRUITSLIST = {"Apple", "Orange", "Mango", "Fruit 4"};
+    String[] FRUITSLIST = {"Apple", "Orange", "Mango", "Grapes", "Jack Fruit", "Watermelon"};
+    String[] GRAINLIST = {"Barley", "Lentil", "Rye Grains", "Oat"};
+    String[] DAIRYLIST = {"Butter", "Milk", "Cheese", "Milk Powder"};
     String[] OILLIST = {"Coconut Oil", "Sunflower Oil", "Soybean Oil", "Corn Oil", "Citrus Oil", "Walnut Oil"};
+    String[] PROCESSEDLIST = {"Bread", "Bacon", "Sausage", "Bagels", "Muffins", "Fruit Drinks"};
 
     String[] SEEDSLIST = {"Barley", "Rice", "Lupin", "Pea", "Soybean", "Millet", "Wheat"};
     String[] FERTILIZERSLIST = {"Ammonium Sulphate", "Urea", "Ammonium Chloride", "Calcium Ammonium Nitrate", "Anhydrous Ammonia", "Urea Super Granulated"};
@@ -63,7 +66,7 @@ public class SubCategory extends AppCompatActivity {
                 if(flag == 1) {
                     it = new Intent(SubCategory.this, ProductPage.class);
                 }
-                it.putExtra("type", new Random().nextInt(7));
+                it.putExtra("type", 1 + new Random().nextInt(6));
                 it.putExtra("item", selectedList[position]);
                 startActivity(it);
                 overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
@@ -100,6 +103,21 @@ public class SubCategory extends AppCompatActivity {
                 selectedList = OILLIST;
                 flag=1;
                 break;
+            case "food grains":
+                spinner.setItems(GRAINLIST);
+                selectedList = GRAINLIST;
+                flag=1;
+                break;
+            case "dairy":
+                spinner.setItems(DAIRYLIST);
+                selectedList = DAIRYLIST;
+                flag=1;
+                break;
+            case "processed food":
+                spinner.setItems(PROCESSEDLIST);
+                selectedList = PROCESSEDLIST;
+                flag=1;
+                break;
             case "seeds":
                 spinner.setItems(SEEDSLIST);
                 selectedList = SEEDSLIST;
@@ -127,5 +145,11 @@ public class SubCategory extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right);
     }
 }
