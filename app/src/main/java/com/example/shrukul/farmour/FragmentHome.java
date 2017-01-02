@@ -5,10 +5,14 @@ import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -24,6 +28,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -36,6 +41,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
 
     private final String serverUrl = "http://bucksbuddy.pe.hu/index.php";
     CardView produce, invest, meat, insurance, farmtech, support;
+    ImageView im1, im4;
 
     TextView amt;
 
@@ -69,6 +75,52 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
         insurance.setOnClickListener(this);
         farmtech.setOnClickListener(this);
         support.setOnClickListener(this);
+        im1 = (ImageView) getActivity().findViewById(R.id.im1);
+        im4 = (ImageView) getActivity().findViewById(R.id.im4);
+
+        im1.setImageBitmap(
+                decodeSampledBitmapFromResource(getResources(), R.drawable.card1, 335 , 130));
+        im4.setImageBitmap(
+                decodeSampledBitmapFromResource(getResources(), R.drawable.card4, 335 , 130));
+    }
+
+    public static int calculateInSampleSize(
+            BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        // Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+
+            final int halfHeight = height / 2;
+            final int halfWidth = width / 2;
+
+            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
+            // height and width larger than the requested height and width.
+            while ((halfHeight / inSampleSize) >= reqHeight
+                    && (halfWidth / inSampleSize) >= reqWidth) {
+                inSampleSize *= 2;
+            }
+        }
+
+        return inSampleSize;
+    }
+
+    public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
+                                                         int reqWidth, int reqHeight) {
+
+        // First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(res, resId, options);
+
+        // Calculate inSampleSize
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeResource(res, resId, options);
     }
 
     @Override
@@ -128,6 +180,8 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
+            case R.id.fab:
+                ((MainActivity)getActivity()).sendFeedback();
         }
     }
 }

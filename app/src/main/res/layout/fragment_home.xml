@@ -29,8 +29,7 @@
                 <ImageView
                     android:id="@+id/im1"
                     android:layout_width="335dp"
-                    android:layout_height="130dp"
-                    android:src="@drawable/card1" />
+                    android:layout_height="130dp" />
 
 <!--                <ImageView
                     android:id="@+id/im2"
@@ -47,8 +46,7 @@
                 <ImageView
                     android:id="@+id/im4"
                     android:layout_width="335dp"
-                    android:layout_height="130dp"
-                    android:src="@drawable/card4" />
+                    android:layout_height="130dp" />
             </LinearLayout>
         </HorizontalScrollView>
 

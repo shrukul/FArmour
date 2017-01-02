@@ -4,6 +4,8 @@ import android.animation.ValueAnimator;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    FloatingActionButton fab;
 
     FloatingSearchView floatingSearchView;
 
@@ -48,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         floatingSearchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendFeedback();
+            }
+        });
 
 /*        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -89,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.frame, fragment_home);
                         fragmentTransaction.commit();
                         Log.d(TAG, "Home");
+                        return true;
+                    case R.id.feedback:
+                        sendFeedback();
                         return true;
                     case R.id.signout:
                         session.logoutUser();
@@ -217,5 +232,13 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggles
         actionBarDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    public void sendFeedback() {
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto: thefarmour@gmail.com"));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "FArmour Feedback");
+        startActivity(Intent.createChooser(emailIntent, "Send feedback"));
+        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
     }
 }

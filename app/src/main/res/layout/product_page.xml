@@ -28,7 +28,7 @@
                 android:layout_marginRight="20.0dip"
                 android:layout_marginTop="15.0dip"
                 android:layout_weight="4"
-                android:src="@drawable/cereal"
+                android:src="@drawable/product"
                 android:transitionName="profile" />
 
             <LinearLayout
